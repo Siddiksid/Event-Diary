@@ -35,7 +35,7 @@ export default function Home() {
 
   const dayBox = currentMonth[months[monthCounter]];
   function handleClick(e, index) {
-    setShowText("");
+    
     setSelectedDay(index);
     console.log(selectedDay);
 
@@ -57,10 +57,10 @@ export default function Home() {
   function handleSubmit(e) {
     e.preventDefault();
     dayBox[selectedDay] = text;
-
+    setText("");
     console.log(dayBox[selectedDay].length);
     if (dayBox[selectedDay]?.length > 0) {
-      setText("");
+      
       setTextId("textDisable");
       setDivId("divAble");
       setSpanId("visible");
@@ -116,6 +116,7 @@ export default function Home() {
       <div className="text-display">
         <form action="">
           <textarea
+            value={text}
             onChange={handleChange}
             id={textId}
             cols="30"
